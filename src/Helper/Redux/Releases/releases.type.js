@@ -1,0 +1,1 @@
+export const LOAD_NEW_RELEASES = "LOAD_NEW_RELEASES";

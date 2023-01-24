@@ -14,9 +14,8 @@ import Charts from './Charts'
 
 const HeroSection = () => {
   return (
-    <div className='flex justify-between mt-[2.28rem]'>
+    <div className='flex justify-between w-[100%] mt-[2.28rem]'>
 
-        {/* Banner */}
         <div className='bg-[#6093af] flex rounded-[40px] overflow-x-hidden items-center w-[62%] ml-20 relative'>
             <div className='w-[50%] px-8 '>
 
@@ -47,7 +46,6 @@ const HeroSection = () => {
 
         </div>
 
-        {/* Charts */}
         <Charts />
     </div>
   )

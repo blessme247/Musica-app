@@ -13,7 +13,7 @@ const searchIcon = (
 
 export const Navbar = () => {
   return (
-    <div className='flex justify-between items-center max-w-[1240px] px-4 mx-auto h-24'>
+    <div className='flex relative justify-between items-center mx-auto h-24'>
         <div className='w-[5%]'>
 
         <img src={logo} alt="logo"  />

@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Navbar } from "./Components/NavBar Component/Navbar";
-import SideNav from "./Components/SideNav Component/SideNav";
+import Playlist from "./Components/Playlist Component/Playlist";
 import Homepage from "./Pages/Homepage/Homepage";
 
 function App() {
@@ -9,6 +8,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/playlist" element={<Playlist />} />
       </Routes>
     </div>
   );
