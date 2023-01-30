@@ -34,11 +34,11 @@ const NewReleaseSlides = () => {
       >
         <div className="flex justify-between items-center h-fit ">
           {newReleases.length ? (
-            newReleases.map((release) => {
-              const { artist, title, cover_medium } = release || {};
+            newReleases.map((release, key) => {
+              const { artist, title, cover_medium, id } = release || {};
 
               return (
-                <SwiperSlide className="text-[#efeee0] py-[1rem] flex flex-col w-[20%] cursor-pointer transition duration-150 ease-in-out  hover:scale-105 ">
+                <SwiperSlide key={id} className="text-[#efeee0] py-[1rem] flex flex-col w-[20%] cursor-pointer transition duration-150 ease-in-out  hover:scale-105 ">
                   <img
                     className="rounded-[25px] h-[153px] object-fit object-cover mb-[0.5rem] "
                     src={cover_medium}

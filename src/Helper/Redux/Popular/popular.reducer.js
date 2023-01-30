@@ -5,7 +5,7 @@ const INITIAL_STATE = {
 }
 
 const popularReducer = (state = INITIAL_STATE, action) =>{
-    const {popular} = state;
+    const {popularSongs} = state;
     const {type, payload} = action;
     switch (type) {
         case LOAD_POPULAR: 

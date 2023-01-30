@@ -1,17 +1,17 @@
 import { LOAD_PLAYLIST } from "./playlist.type";
 
 const INITIAL_STATE = {
-    playlists: []
+    playlist: {}
 }
 
 const playlistReducer = (state = INITIAL_STATE, action) =>{
-    const {playlists} = state;
+    const {playlist} = state;
     const {type, payload} = action;
     switch (type) {
         case LOAD_PLAYLIST: 
         return {
             ...state,
-            playlists: [payload]
+            playlist: payload
         }
         default: 
         return state;

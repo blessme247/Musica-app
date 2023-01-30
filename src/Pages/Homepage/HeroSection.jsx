@@ -8,7 +8,8 @@ import swineIcon from '../../assets/icons/Vector.svg'
 
 
 import heroImage from '../../assets/Images/Cruel-Santino.png'
-import Charts from './Charts'
+import Charts from './TopCharts'
+import TopCharts from './TopCharts'
 
 
 
@@ -46,7 +47,7 @@ const HeroSection = () => {
 
         </div>
 
-        <Charts />
+        <TopCharts />
     </div>
   )
 }
