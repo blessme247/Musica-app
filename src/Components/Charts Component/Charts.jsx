@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadCharts } from "../../Helper/Redux/Charts/charts.action";
-import ChartsServices from "../../Helper/Redux/Charts/charts.service";
+import { useParams } from "react-router-dom";
+import axiosInstance from "../../Helper/Redux/AxiosConfig/axiosConfig";
 import { loadPlaylist } from "../../Helper/Redux/Playlist/playlist.action";
-import PlaylistServices from "../../Helper/Redux/Playlist/playlist.service";
 import { Navbar } from "../NavBar Component/Navbar";
 import SideNav from "../SideNav Component/SideNav";
 import ChartsGroup from "./ChartsGroup";
@@ -11,13 +10,20 @@ import ChartsGroup from "./ChartsGroup";
 const Charts = () => {
   
 
+  const { query } = useParams();
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   PlaylistServices.fetchPlayList().then((response) => {
-  //     dispatch(loadPlaylist(response));
-  //   });
 
-  // }, [dispatch]);
+  useEffect(() => {
+    const getPlaylistData = async () => {
+      const response = await axiosInstance.get(
+        `/playlist/${query}?index=0&limit=15`
+      );
+      const { data } = response;
+      console.log(data, "playlist data")
+      dispatch(loadPlaylist(data));
+    };
+    getPlaylistData();
+  }, [query]);
 
   
   return (

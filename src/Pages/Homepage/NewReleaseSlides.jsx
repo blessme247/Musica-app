@@ -6,6 +6,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/css/navigation";
 import "swiper/css/mousewheel";
 import { useSelector } from "react-redux";
+import AlbumCard from "../../Components/AlbumCard";
 
 const NewReleaseSlides = () => {
   const { newReleases } = useSelector((state) => state.newReleaseStore);
@@ -34,18 +35,12 @@ const NewReleaseSlides = () => {
       >
         <div className="flex justify-between items-center h-fit ">
           {newReleases.length ? (
-            newReleases.map((release, key) => {
+            newReleases.map((release) => {
               const { artist, title, cover_medium, id } = release || {};
 
               return (
-                <SwiperSlide key={id} className="text-[#efeee0] py-[1rem] flex flex-col w-[20%] cursor-pointer transition duration-150 ease-in-out  hover:scale-105 ">
-                  <img
-                    className="rounded-[25px] h-[153px] object-fit object-cover mb-[0.5rem] "
-                    src={cover_medium}
-                    alt="music art"
-                  />
-                  <p className="text-[#efeee0]">{title}</p>
-                  <p className="text-[#efeee0]">{artist?.name}</p>
+                <SwiperSlide key={id} className="">
+                  <AlbumCard coverImage={cover_medium} title={title} name={artist?.name} />
                 </SwiperSlide>
               );
             })

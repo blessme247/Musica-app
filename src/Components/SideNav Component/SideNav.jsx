@@ -7,14 +7,15 @@ import playlistIcon from '../../assets/icons/playlist.svg'
 import profileIcon from '../../assets/icons/profile.svg'
 import logoutIcon from '../../assets/icons/logout.svg'
 import videoIcon from '../../assets/icons/videos.svg'
+import { Link } from 'react-router-dom'
 
 
 const SideNav = () => {
   return (
     <div className='flex flex-col items-center fixed gap-[2rem] h-[calc(100vh_-_6rem)] top-[8rem] left-[0]'>
         <div className='flex flex-col justify-between bg-[#1a1e1f] p-4 h-[220px] rounded-[32px]'>
-                <img className='text-[#efeee040] cursor-pointer' src={homeIcon} alt="home icon" />
-                <img className='cursor-pointer' src={playlistIcon} alt="playlist icon" />
+               <Link to="/"> <img className='text-[#efeee040] cursor-pointer' src={homeIcon} alt="home icon" /> </Link> <Link/>
+                <img className='cursor-pointer' src={playlistIcon} alt="playlist icon" /> 
                 <img className='cursor-pointer' src={radioIcon} alt="radio icon" />
                 <img className='cursor-pointer' src={videoIcon} alt="video icon" />
         </div>

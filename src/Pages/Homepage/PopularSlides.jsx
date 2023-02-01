@@ -6,6 +6,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/css/navigation";
 import "swiper/css/mousewheel";
 import { useSelector } from "react-redux";
+import AlbumCard from "../../Components/AlbumCard";
 
 
 
@@ -47,10 +48,8 @@ const PopularScroller = () => {
               const {artist, title, cover_medium, id} = popularSong || {};
               
               return( 
-              <SwiperSlide key={id} className='text-[#efeee0] flex flex-col w-[20%] py-[1rem] cursor-pointer transition duration-150 ease-in-out hover:scale-105'>
-                <img className='rounded-[25px] h-[153px] object-fit object-cover mb-[0.5rem] ' src={cover_medium} alt="music art" />
-                <p className="text-[#efeee0]">{title}</p>
-                <p className="text-[#efeee0]">{artist?.name}</p>
+              <SwiperSlide key={id} >
+                <AlbumCard coverImage={cover_medium} title={title} name={artist?.name} />
 
           </SwiperSlide> )
           }) : <p className="text-[#efeee0]">No Popular Songs yet</p>}

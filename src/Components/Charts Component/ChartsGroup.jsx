@@ -1,32 +1,17 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import playIcon from "../../assets/icons/play.svg";
 import collectionIcon from "../../assets/icons/collection.svg";
 import redHeartIcon from "../../assets/icons/redHeart.svg";
-import PlaylistServices from "../../Helper/Redux/Playlist/playlist.service";
-import { useEffect } from "react";
-import axiosInstance from "../../Helper/Redux/AxiosConfig/axiosConfig";
-import { loadPlaylist } from "../../Helper/Redux/Playlist/playlist.action";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import ChartsSection from "./ChartsSection";
 
 const ChartsGroup = () => {
-  const { query } = useParams();
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    const getPlaylistData = async () => {
-      const response = await axiosInstance.get(
-        `/playlist/${query}?index=0&limit=15`
-      );
-      const { data } = response;
-      dispatch(loadPlaylist(data))
-    };
-    getPlaylistData();
-  }, [query]);
+  
 
   const { playlist } = useSelector((state) => state.playlistStore);
-  console.log(playlist, "Playlist from store")
-  if (!playlist) return <p className="text-white">No data</p>;
+  console.log(playlist, "Playlist from store");
+  if (!playlist) return null;
 
   return (
     <div className=" w-[100%] ml-[5.5rem] flex flex-col mt-[2.28rem]">
@@ -46,26 +31,27 @@ const ChartsGroup = () => {
             {playlist.description}
           </p>
           <p className="text-[#efeee0] text-[14px] leading-[16.8px] mt-[0.8rem]">
-            {" "}
-            {playlist.duration}{" "}
+           <span>  {Math.floor(playlist.duration / 3600)} hrs </span>
+           <span>  {Math.floor((playlist.duration % 3600) / 60)} mins </span>
+           <span>  {Math.floor((playlist.duration % 3600) % 60)} seconds </span>
           </p>
           <div className="flex justify-between items-center gap-[10px] text-[12px] leading-[14.4px] mt-[4rem] text-[#efeee0]">
-            <Link className="flex items-center rounded-[32px] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] transition duration-150 ease-in-out  hover:scale-105 hover:text-[#a4c7c6]">
-              <img src={playIcon} alt="play icon" />{" "}
+            <Link className="flex items-center rounded-[32px] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] hover-state hover:text-[#a4c7c6]">
+              <img src={playIcon} alt="play icon" />
               <span className="pl-[0.5rem]">Play All</span>
             </Link>
-            <Link className="flex items-center rounded-[32px] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] transition duration-150 ease-in-out hover:scale-105 hover:text-[#a4c7c6]">
-              <img src={collectionIcon} alt="music collection icon" />{" "}
+            <Link className="flex items-center rounded-[32px] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] hover-state hover:text-[#a4c7c6]">
+              <img src={collectionIcon} alt="music collection icon" />
               <span className="pl-[0.5rem]">Add to collection</span>
             </Link>
-            <Link className="flex items-center justify-center rounded-[50%] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] w-[45px] transition duration-150 ease-in-out  hover:scale-105">
+            <Link className="flex items-center justify-center rounded-[50%] bg-[#ffffff12] backdrop-blur-[5px] p-[12px] text-[1rem] h-[45px] w-[45px] hover-state">
               <img src={redHeartIcon} alt="heart icon" />
             </Link>
           </div>
         </div>
       </div>
 
-      {/* <ChartsSection /> */}
+      <ChartsSection />
     </div>
   );
 };
