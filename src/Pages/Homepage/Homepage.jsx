@@ -25,9 +25,9 @@ const Homepage = () => {
   }, [dispatch])
   
   return (
-    <div>
+    <div className="w-[98%] max-w-[1240px] mx-[auto]" >
         <Navbar />
-        <div className='flex justify-between items-center '>
+        <div className='flex'>
 
         <SideNav />
         <HeroSection />

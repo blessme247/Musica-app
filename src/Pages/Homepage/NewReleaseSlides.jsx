@@ -10,7 +10,6 @@ import AlbumCard from "../../Components/AlbumCard";
 
 const NewReleaseSlides = () => {
   const { newReleases } = useSelector((state) => state.newReleaseStore);
-  console.log(newReleases, "release")
 
   return (
     <>
@@ -41,7 +40,12 @@ const NewReleaseSlides = () => {
 
               return (
                 <SwiperSlide key={id} className="">
-                  <AlbumCard link={`/album/${id}`} coverImage={cover_medium} title={title} name={artist?.name} />
+                  <AlbumCard
+                    link={`/album/${id}`}
+                    coverImage={cover_medium}
+                    title={title}
+                    name={artist?.name}
+                  />
                 </SwiperSlide>
               );
             })
@@ -50,7 +54,6 @@ const NewReleaseSlides = () => {
           )}
         </div>
 
-        {/* </div> */}
       </Swiper>
     </>
   );

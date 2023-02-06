@@ -11,7 +11,7 @@ const ChartsGroup = () => {
 
   return (
 
-    <ChartGroup cover_image={playlist.picture_xl} length={playlist.tracks.data.length} title={playlist.title} duration={playlist.duration} description={playlist.description} > 
+    <ChartGroup cover_image={playlist.picture_xl} length={playlist.tracks?.data.length} title={playlist.title} duration={playlist.duration} description={playlist.description} > 
     <ChartsSection />
     </ChartGroup>
   );

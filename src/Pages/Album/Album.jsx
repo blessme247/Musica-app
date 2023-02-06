@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Navbar } from "../../Components/NavBar Component/Navbar";
 import SideNav from "../../Components/SideNav Component/SideNav";
@@ -17,18 +17,31 @@ const Album = () => {
         `/album/${query}?index=0&limit=15`
       );
       const { data } = response;
-      console.log(data, "album data");
       dispatch(loadAlbum(data));
     };
     getAlbumData();
-  }, [query]);
+  }, [query, dispatch]);
+
+  const { album } = useSelector((state) => state.albumStore);
+  if (!album) return null;
 
   return (
-    <div className="bg-playlist1 bg-no-repeat bg-cover bg-center backdrop-blur-[5px]">
-      <Navbar />
-      <div className="flex">
-        <SideNav />
-        <AlbumGroup />
+    <div
+      style={{
+        backgroundImage: `linear-gradient(rgba(15, 18, 19, 0.85), rgba(15, 18, 19, 0.85)), url(${album?.cover_xl})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        height: "100vh",
+        overflowY: "scroll",
+      }}
+    >
+      <div className="w-[98%] max-w-[1240px] mx-[auto]">
+        <Navbar />
+        <div className="flex">
+          <SideNav />
+          <AlbumGroup />
+        </div>
       </div>
     </div>
   );

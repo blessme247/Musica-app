@@ -11,8 +11,8 @@
 body {
   background-color: rgba(29, 33, 35, 1);
   font-family: 'Quicksand', sans-serif;
-  max-width: 1240px;
-  width: 98%;
+  /* max-width: 1240px; */
+  /* width: 98%; */
   padding-inline: 4px;
   margin-inline: auto;
 }

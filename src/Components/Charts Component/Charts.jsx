@@ -8,8 +8,6 @@ import SideNav from "../SideNav Component/SideNav";
 import ChartsGroup from "./ChartsGroup";
 
 const Charts = () => {
-  
-
   const { query } = useParams();
   const dispatch = useDispatch();
 
@@ -19,19 +17,32 @@ const Charts = () => {
         `/playlist/${query}?index=0&limit=15`
       );
       const { data } = response;
-      console.log(data, "playlist data")
       dispatch(loadPlaylist(data));
     };
     getPlaylistData();
-  }, [query]);
+  }, [query, dispatch]);
 
-  
+  const { playlist } = useSelector((state) => state.playlistStore);
+  if (!playlist) return null;
+
   return (
-    <div className="bg-playlist1 bg-no-repeat bg-cover bg-center backdrop-blur-[5px]">
+    <div 
+      style={{
+        backgroundImage: `linear-gradient(rgba(15, 18, 19, 0.85), rgba(15, 18, 19, 0.85)), url(${playlist?.picture_xl})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        height: "100vh",
+        overflowY: "scroll",
+        
+      }}
+    >
+      <div className="w-[98%] max-w-[1240px] mx-[auto]"> 
       <Navbar />
-      <div className="flex">
+      <div className="flex ">
         <SideNav />
         <ChartsGroup />
+      </div>
       </div>
     </div>
   );

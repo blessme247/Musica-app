@@ -5,10 +5,9 @@ import ChartCard from "../../Components/ChartCard";
 
 const TopCharts = () => {
   const { charts } = useSelector((state) => state.chartsStore);
-  console.log(charts, "TopCharts")
   return (
     <div className="flex flex-col w-[28%]">
-      <p className="text-white text-[24px] leading-[28.8px] font-bold">
+      <p className="text-[#efeee0] text-[24px] leading-[28.8px] font-bold">
         Top Charts
       </p>
 
@@ -22,7 +21,7 @@ const TopCharts = () => {
           );
         })
       ) : (
-        <p>No Charts yet</p>
+        <p className='text-[#efeee0]'>No Charts yet</p>
       )}
     </div>
   );

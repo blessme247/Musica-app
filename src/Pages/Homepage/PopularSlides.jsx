@@ -54,7 +54,6 @@ const PopularScroller = () => {
           )}
         </div>
 
-        {/* </div> */}
       </Swiper>
     </>
   );

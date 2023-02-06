@@ -12,15 +12,15 @@ import { Link } from 'react-router-dom'
 
 const SideNav = () => {
   return (
-    <div className='flex flex-col items-center fixed gap-[2rem] h-[calc(100vh_-_6rem)] top-[8rem] left-[0]'>
-        <div className='flex flex-col justify-between bg-[#1a1e1f] p-4 h-[220px] rounded-[32px]'>
+    <div className='flex flex-col items-center fixed gap-[2rem] h-[calc(100vh_-_6rem)] top-[8rem] left-[0.5rem]'>
+        <div className='flex flex-col justify-between bg-[#1a1e1f] py-5 px-3 h-[225px] rounded-[32px]'>
                <Link to="/"> <img className='text-[#efeee040] cursor-pointer' src={homeIcon} alt="home icon" /> </Link> 
                 <img className='cursor-pointer' src={playlistIcon} alt="playlist icon" /> 
                 <img className='cursor-pointer' src={radioIcon} alt="radio icon" />
                 <img className='cursor-pointer' src={videoIcon} alt="video icon" />
         </div>
 
-        <div className='flex flex-col justify-between bg-[#1a1e1f] p-4 rounded-[32px] h-[100px]'>
+        <div className='flex flex-col justify-between bg-[#1a1e1f] py-5 px-3 rounded-[32px] h-[105px]'>
         <img className='cursor-pointer' src={profileIcon} alt="profile icon" />
         <img className='cursor-pointer' src={logoutIcon} alt="logout icon" />
                 
