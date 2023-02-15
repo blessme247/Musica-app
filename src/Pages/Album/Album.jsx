@@ -5,6 +5,7 @@ import { Navbar } from "../../Components/NavBar Component/Navbar";
 import SideNav from "../../Components/SideNav Component/SideNav";
 import { loadAlbum } from "../../Helper/Redux/Album/album.action";
 import axiosInstance from "../../Helper/Redux/AxiosConfig/axiosConfig";
+import { loadAudioQueue } from "../../Helper/Redux/DataStore/AudioQueue/queue.action";
 import AlbumGroup from "./AlbumGroup";
 
 const Album = () => {
@@ -18,6 +19,8 @@ const Album = () => {
       );
       const { data } = response;
       dispatch(loadAlbum(data));
+      const { tracks } = data;
+      dispatch(loadAudioQueue(tracks.data));
     };
     getAlbumData();
   }, [query, dispatch]);
@@ -36,7 +39,7 @@ const Album = () => {
         overflowY: "scroll",
       }}
     >
-      <div className="w-[98%] max-w-[1240px] mx-[auto]">
+      <div className="w-[95%] max-w-[1240px] mx-[auto]">
         <Navbar />
         <div className="flex">
           <SideNav />

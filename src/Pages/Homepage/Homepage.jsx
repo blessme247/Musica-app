@@ -1,42 +1,39 @@
-import React, {useEffect} from 'react'
-import { useDispatch } from 'react-redux';
-import { Navbar } from '../../Components/NavBar Component/Navbar'
-import SideNav from '../../Components/SideNav Component/SideNav'
-import { loadPopular } from '../../Helper/Redux/Popular/popular.action';
-import PopularServices from '../../Helper/Redux/Popular/popular.service';
-import { loadNewReleases } from '../../Helper/Redux/Releases/releases.action';
-import NewReleaseServices from '../../Helper/Redux/Releases/releases.service'
-import HeroSection from './HeroSection'
-import NewReleases from './NewReleases'
-import PopularMusic from './PopularMusic';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Navbar } from "../../Components/NavBar Component/Navbar";
+import SideNav from "../../Components/SideNav Component/SideNav";
+import { loadPopular } from "../../Helper/Redux/Popular/popular.action";
+import PopularServices from "../../Helper/Redux/Popular/popular.service";
+import { loadNewReleases } from "../../Helper/Redux/Releases/releases.action";
+import NewReleaseServices from "../../Helper/Redux/Releases/releases.service";
+import HeroSection from "./HeroSection";
+import NewReleases from "./NewReleases";
+import PopularMusic from "./PopularMusic";
 
 const Homepage = () => {
-
   const dispatch = useDispatch();
 
   useEffect(() => {
-    NewReleaseServices.fetchNewReleases().then((response)=>{
-      dispatch(loadNewReleases(response))
-    })
+    NewReleaseServices.fetchNewReleases().then((response) => {
+      dispatch(loadNewReleases(response));
+    });
 
-    PopularServices.fetchPopular().then((response)=>{
-      dispatch(loadPopular(response))
-    })
-  }, [dispatch])
-  
+    PopularServices.fetchPopular().then((response) => {
+      dispatch(loadPopular(response));
+    });
+  }, [dispatch]);
+
   return (
-    <div className="w-[98%] max-w-[1240px] mx-[auto]" >
-        <Navbar />
-        <div className='flex'>
-
+    <div className="w-[95%] max-w-[1240px] mx-[auto]">
+      <Navbar />
+      <div className="flex">
         <SideNav />
         <HeroSection />
-     
-        </div>
-        <NewReleases />
-        <PopularMusic />
+      </div>
+      <NewReleases />
+      <PopularMusic />
     </div>
-  )
-}
+  );
+};
 
-export default Homepage
+export default Homepage;

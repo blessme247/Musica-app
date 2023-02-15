@@ -4,8 +4,11 @@ import ChartGroup from "../../Components/ChartGroup";
 import AlbumList from "./AlbumList";
 
 const AlbumGroup = () => {
+  
   const { album } = useSelector((state) => state.albumStore);
-  if (!album) return null;
+  if (!album) {
+    return null;
+  }
 
   return (
     <ChartGroup

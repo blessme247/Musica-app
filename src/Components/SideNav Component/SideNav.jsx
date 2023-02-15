@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 const SideNav = () => {
   return (
-    <div className='flex flex-col items-center fixed gap-[2rem] h-[calc(100vh_-_6rem)] top-[8rem] left-[0.5rem]'>
+    <div className='flex flex-col items-center fixed gap-[2rem] h-[calc(100vh_-_6rem)] top-[8rem] left-[1.5rem]'>
         <div className='flex flex-col justify-between bg-[#1a1e1f] py-5 px-3 h-[225px] rounded-[32px]'>
                <Link to="/"> <img className='text-[#efeee040] cursor-pointer' src={homeIcon} alt="home icon" /> </Link> 
                 <img className='cursor-pointer' src={playlistIcon} alt="playlist icon" /> 

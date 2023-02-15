@@ -8,6 +8,7 @@ const AlbumList = () => {
   let { tracks } = album;
   if (!album) return null;
 
+
   return (
     <div className="my-[3.06rem]">
       {tracks
@@ -20,6 +21,7 @@ const AlbumList = () => {
                 title={title.slice(0, 25)}
                 name={artist.name}
                 duration={duration}
+                data={track}
               />
             );
           })
